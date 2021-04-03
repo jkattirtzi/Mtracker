@@ -1,0 +1,4 @@
+pandas==0.24.2
+altair==4.1.0
+numpy==1.16.2
+streamlit==0.79.0
