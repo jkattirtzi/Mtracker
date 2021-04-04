@@ -39,7 +39,7 @@ def get_inputs():
         data['Poop']='Poop'
     else:
         data['Poop']=''
-    notes= st.text_input("Notes",value='TEST')
+    notes= st.text_input("Notes")
     data['Notes'] =notes
 #    cs=df1.columns.to_list()
 #    st.write(cs)
@@ -47,7 +47,6 @@ def get_inputs():
     data_df=data_df.replace('Empty', ' ')
 #    st.write(data_df)
     data_df=data_df[['Date', 'Time', 'Pee', 'Poop', 'Food', 'Quantity (ml)', 'Notes']]
-    data_df.to_csv("temp.csv")
 #    save=st.selectbox("End",['save or test?','save','test'])
 #    if save=='save':
 #       data_df.to_csv("temp.csv")
@@ -56,15 +55,18 @@ def get_inputs():
 #    elif save=='test':
 #       data_df.to_csv("temp.csv")
 #       st.write("Written to temp")
-    save= st.selectbox('Delete will not include above input, Temp gives one shot, Save adds input to file',['Delete','Save','Temp'])
-    if save =='Save':
-        df2=get_fulldata()
-        df2.to_csv("Marie_Tracker_Responses1.csv")
-    elif save=='Delete':
-        os.remove("temp.csv")
-    elif save=='Temp':
-        pass
-    return df1
+#    save= st.selectbox('Delete will not include above input, Temp gives one shot, Save adds input to file',['Delete','Save','Temp'])
+    save=st.button("Save")
+    if save ==True:
+        data_df.to_csv("temp.csv")
+        st.write("Saved")
+#        df2=get_fulldata()
+#        df2.to_csv("Marie_Tracker_Responses1.csv")
+#    elif save=='Delete':
+#        os.remove("temp.csv")
+#    elif save=='Temp':
+#        pass
+    return 
 
 def get_data0():
     df1=pd.read_csv("Marie_Tracker_Responses1.csv")
@@ -83,6 +85,7 @@ def get_fulldata():
         temp['Date']=pd.to_datetime(temp['Date'])
         temp['Date']=temp['Date'].dt.date
         df1=df1.append(temp,ignore_index=True)
+        df1.to_csv("Marie_Tracker_Responses1.csv")
         os.remove("temp.csv")
     return df1
 
