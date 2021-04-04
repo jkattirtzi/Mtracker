@@ -113,7 +113,7 @@ def main():
 #    st.write("Full Data")
 #    st.write(df1r)
 
-    return df1
+    return
 
 def full_data():
     df1=get_fulldata()
