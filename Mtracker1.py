@@ -11,21 +11,20 @@ import datetime
 def get_inputs():
     st.header("Inputs")
     data={}
-    d = st.date_input("Date",datetime.date.today())
+    today=datetime.datetime.utcnow()-datetime.timedelta(hours=4)
+    today_date=today.date()
+    today_time=today.time()
+    d = st.date_input("Date",today_date)
     data['Date']=d
 	#st.write('Date:', d)
-    t=st.time_input('Time')
+    t=st.time_input('Time', today_time)
 	#st.write('Time', t)
     data['Time']=t
 
-    st.write("Food Inputs")
-    Foptions=['Breast (Fed)', 'Breast (Pumped)', 'Formula (Similac)', 'Formula (Neopro)', 'Formula (Neopro Gentlease)']
-
-
+    Foptions=['','Breast (Fed)', 'Breast (Pumped)', 'Formula (Similac)', 'Formula (Neopro)', 'Formula (Neopro Gentlease)']
     Food = st.selectbox('Food',Foptions)
-
     data['Food']=Food
-    Quantity=st.number_input('Quantity (ml)', value=30, step=5)
+    Quantity=st.number_input('Quantity (ml)', value=0, step=5)
     data['Quantity (ml)']=Quantity
 
     st.write("Diaper Inputs")
@@ -39,7 +38,7 @@ def get_inputs():
         data['Poop']='Poop'
     else:
         data['Poop']=''
-    notes= st.text_input("Notes")
+    notes= st.text_input("Notes", value = '')
     data['Notes'] =notes
 #    cs=df1.columns.to_list()
 #    st.write(cs)
