@@ -31,7 +31,7 @@
 29,2021-03-30,23:15:00,,,Breast (Pumped),26,
 30,2021-03-31,00:45:00,,Poop,,,
 31,2021-03-31,01:25:00,,,Breast (Pumped),30,
-32,2021-03-31,05:00:00,,,Breast  (Pumped),25,
+32,2021-03-31,05:00:00,,,Breast (Pumped),25,
 33,2021-03-31,07:05:00,,,Breast (Pumped),30,
 34,2021-03-31,10:00:00,,,Breast (Pumped),20,
 35,2021-03-31,13:15:00,Pee,Poop,Breast (Pumped),25,
@@ -57,7 +57,7 @@
 55,2021-04-02,02:20:00,Pee,Poop,Formula (Neopro),60,Gentlease 
 56,2021-04-02,05:50:00,Pee,Poop,Formula (Neopro),50,Gentlease
 57,2021-04-02,07:30:00,,,Formula (Neopro),60,Gentlease
-58,2021-04-02,10:20:00,,,Breast Pumped,30,
+58,2021-04-02,10:20:00,,,Breast (Pumped),30,
 59,2021-04-02,12:30:00,,,Breast (Pumped),40,
 60,2021-04-02,13:40:00,Pee,,,,
 61,2021-04-02,13:45:00,,,Breast (Pumped),15,
@@ -78,7 +78,7 @@
 76,2021-04-03,21:45:00,Pee,Poop,Breast (Pumped),60,Big poop after kangaroo care
 77,2021-04-04,00:15:00,,,Formula (Neopro),60,Gentlease 
 78,2021-04-04,00:45:00,Pee,Poop,,,
-79,2021-04-04,02:16:00,,,Formula (Neopro),46,Gentlease 
+79,2021-04-04,02:16:00,,,Formula (Neopro),45,Gentlease 
 80,2021-04-04,02:45:00,Pee,Poop,,,
 81,2021-04-04,03:10:00,,,Formula (Neopro),10,Gentlease 
 82,2021-04-04,06:00:00,Pee,,Breast (Pumped),55,
@@ -92,3 +92,15 @@
 90,2021-04-05,02:00:00,Pee,Poop,Formula (Neopro),60,Gentlease
 91,2021-04-05,04:30:00,,,Breast (Pumped),60,
 92,2021-04-05,07:30:00,Pee,Poop,Breast (Pumped),60,
+93,2021-04-05,10:30:00,Pee,Poop,Breast (Pumped),60,
+94,2021-04-05,13:30:00,,,Formula (Neopro),60,Gentlease 
+95,2021-04-05,16:45:00,,,Formula (Neopro),60,Gentlease 
+96,2021-04-05,19:30:00,,,Formula (Neopro Gentlease),60,
+97,2021-04-05,23:15:00,,,Breast (Pumped),60,
+98,2021-04-06,01:35:00,Pee,Poop,Breast (Pumped),60,
+99,2021-04-06,04:30:00,,,Breast (Pumped),60,
+100,2021-04-06,08:00:00,Pee,,Breast (Pumped),60,
+101,2021-04-06,11:30:00,Pee,,Breast (Pumped),60,
+102,2021-04-06,14:00:00,,,Formula (Neopro Gentlease),60,
+103,2021-04-06,17:00:00,,,Breast (Pumped),60,
+104,2021-04-06,22:25:00,,,Breast (Pumped),60,

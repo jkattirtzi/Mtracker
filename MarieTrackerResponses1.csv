@@ -31,7 +31,7 @@ Timestamp,Date,Time,Pee,Food,Quantity (ml),Notes,Poop
 30/03/2021 23:36,30/03/2021,23:15:00,,Breast (Pumped),26,,
 31/03/2021 00:50,31/03/2021,00:45:00,,,,,Poop
 31/03/2021 01:28,31/03/2021,01:25:00,,Breast (Pumped),30,,
-31/03/2021 05:10,31/03/2021,05:00:00,,Breast  (Pumped),25,,
+31/03/2021 05:10,31/03/2021,05:00:00,,Breast (Pumped),25,,
 31/03/2021 07:14,31/03/2021,07:05:00,,Breast (Pumped),30,,
 31/03/2021 10:04,31/03/2021,10:00:00,,Breast (Pumped),20,,
 31/03/2021 14:02,31/03/2021,13:15:00,Pee,Breast (Pumped),25,,Poop
@@ -78,7 +78,7 @@ Timestamp,Date,Time,Pee,Food,Quantity (ml),Notes,Poop
 03/04/2021 22:01,03/04/2021,21:45:00,Pee,Breast (Pumped),60,Big poop after kangaroo care,Poop
 04/04/2021 00:24,04/04/2021,00:15:00,,Formula (Neopro),60,Gentlease ,
 04/04/2021 01:06,04/04/2021,00:45:00,Pee,,,,Poop
-04/04/2021 02:20,04/04/2021,02:16:00,,Formula (Neopro),46,Gentlease ,
+04/04/2021 02:20,04/04/2021,02:16:00,,Formula (Neopro),45,Gentlease ,
 04/04/2021 02:57,04/04/2021,02:45:00,Pee,,,,Poop
 04/04/2021 03:09,04/04/2021,03:10:00,,Formula (Neopro),10,Gentlease ,
 04/04/2021 06:02,04/04/2021,06:00:00,Pee,Breast (Pumped),55,,
@@ -92,3 +92,15 @@ Timestamp,Date,Time,Pee,Food,Quantity (ml),Notes,Poop
 05/04/2021 02:28,05/04/2021,02:00:00,Pee,Formula (Neopro),60,Gentlease,Poop
 05/04/2021 04:55,05/04/2021,04:30:00,,Breast (Pumped),60,,
 05/04/2021 09:44,05/04/2021,07:30:00,Pee,Breast (Pumped),60,,Poop
+05/04/2021 12:52,05/04/2021,10:30:00,Pee,Breast (Pumped),60,,Poop
+05/04/2021 14:06,05/04/2021,13:30:00,,Formula (Neopro),60,Gentlease ,
+05/04/2021 17:03,05/04/2021,16:45:00,,Formula (Neopro),60,Gentlease ,
+05/04/2021 20:18,05/04/2021,19:30:00,,Formula (Neopro Gentlease),60,,
+05/04/2021 23:34,05/04/2021,23:15:00,,Breast (Pumped),60,,
+06/04/2021 01:44,06/04/2021,01:35:00,Pee,Breast (Pumped),60,,Poop
+06/04/2021 04:46,06/04/2021,04:30:00,,Breast (Pumped),60,,
+06/04/2021 08:33,06/04/2021,08:00:00,Pee,Breast (Pumped),60,,
+06/04/2021 11:42,06/04/2021,11:30:00,Pee,Breast (Pumped),60,,
+06/04/2021 14:16,06/04/2021,14:00:00,,Formula (Neopro Gentlease),60,,
+06/04/2021 17:06,06/04/2021,17:00:00,,Breast (Pumped),60,,
+06/04/2021 22:28,06/04/2021,22:25:00,,Breast (Pumped),60,,

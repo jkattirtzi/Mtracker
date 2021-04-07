@@ -97,18 +97,58 @@ def main():
     df1f=df1f.iloc[0]
     st.header("Home")
     st.write("Last feeding", df1f['Date'], df1f['Time'], df1f['Food'], df1f['Quantity (ml)'],"ml")
-    st.subheader("Yesterday")
+
+    st.subheader("Last 3 days")
     date_uni=df1r['Date'].unique()
-  
-    yesterday=date_uni[1]
-    df1_y=df1[df1['Date']==yesterday]
-    df1_yfood=df1_y[df1_y['Food']!='']
-    df1_yfood['Quantity (ml)']=df1_yfood['Quantity (ml)'].astype(int)
-    st.write(df1_y)
-    st.write("Number of Times Pee:",df1_y[df1_y['Pee']!='']['Pee'].count())
-    st.write("Number of Times Poop:",df1_y[df1_y['Poop']!='']['Poop'].count())
-    st.write("Total Feeding (ml):",df1_yfood['Quantity (ml)'].sum())
-    st.write(df1_yfood[['Food', 'Quantity (ml)' ]].groupby('Food').sum())
+    days3=date_uni[1:4]    
+
+    df1_1=df1[df1['Date']==days3[0]]
+    df1_2=df1[df1['Date']==days3[1]]
+    df1_3=df1[df1['Date']==days3[2]]
+    df_list=[df1_1,df1_2,df1_3]
+
+
+#    st.write("test", df1_1[(df1_1['Pee']=='Pee')| (df1_1['Poop']=='Poop')].count()[0])
+
+#    var=['Total Diapers', 'Number Pee', 'Number Poop']
+    days_d=[]
+    for day in range(3):
+        df_day=df_list[day]
+        day_d={}
+        day_d['Date']=days3[day]
+        day_d['Total Diapers']= df_day[(df_day['Pee']=='Pee')| (df_day['Poop']=='Poop')].count()[0]
+        day_d['N.o Poop']= df_day[(df_day['Poop']=='Poop')].count()[0]
+        day_d['N.o Pee']= df_day[(df_day['Pee']=='Pee')].count()[0]
+        days_d.append(day_d)
+    days_df=pd.DataFrame(days_d)
+    st.write(days_df)
+    st.write("Feeding on ", days3[0])
+    st.write(df1_1[['Date','Food', 'Quantity (ml)' ]].groupby('Food').sum())
+    st.write("Feeding on ", days3[1])
+    st.write(df1_2[['Date','Food', 'Quantity (ml)' ]].groupby('Food').sum())
+    st.write("Feeding on ", days3[2])
+    st.write(df1_3[['Date','Food', 'Quantity (ml)' ]].groupby('Food').sum())
+
+        #st.write(df_i[['Date','Food', 'Quantity (ml)' ]].groupby('Food').sum())
+
+    
+    select_date = st.selectbox('Date',(days3[0], days3[1], days3[2]))
+    if select_date==days3[0]:
+        st.write(df1_1)
+    elif select_date==days3[1]:
+        st.write(df1_2)
+    elif select_date==days3[2]:
+        st.write(df1_3)
+
+
+
+#    df1_yfood=df1_y[df1_y['Food']!='']
+#    df1_yfood['Quantity (ml)']=df1_yfood['Quantity (ml)'].astype(int)
+#    st.write(df1_y)
+#    st.write("Number of Times Pee:",df1_y[df1_y['Pee']!='']['Pee'].count())
+#    st.write("Number of Times Poop:",df1_y[df1_y['Poop']!='']['Poop'].count())
+#    st.write("Total Feeding (ml):",df1_yfood['Quantity (ml)'].sum())
+#    st.write(df1_yfood[['Food', 'Quantity (ml)' ]].groupby('Food').sum())
 #    st.write("Full Data")
 #    st.write(df1r)
 
