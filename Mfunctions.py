@@ -98,6 +98,7 @@ def clean_oldsheet(df0):
 def get_dayfood(df):
     tsum=0.0
     df_food=df[df['Food']!='']
+    df_food=df['Food'].dropna()
 
     i_list=df_food['Food'].unique()
     fsum_dict={}

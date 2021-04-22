@@ -25,9 +25,7 @@ days=df['Date'].unique()
 yesterday=days[1]
 last3days=days[1:4]
 yday=df[df['Date']==yesterday]
-yday=yday['Food'].dropna()
 l3days=df[df['Date'].isin(last3days)]
-l3days=l3days['Food'].dropna()
 fsum_dict=get_dayfood(yday)
 print_dict(fsum_dict)
 st.subheader("Three Day Average Food")
