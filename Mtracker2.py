@@ -23,11 +23,11 @@ st.subheader("Yesterday and Three Day Average")
 st.subheader("Yesterday Food")
 days=df['Date'].unique()
 yesterday=days[1]
-yesterday=yesterday['Food'].dropna()
 last3days=days[1:4]
-last3days=last3days['Food'].dropna()
 yday=df[df['Date']==yesterday]
+yday=yday['Food'].dropna()
 l3days=df[df['Date'].isin(last3days)]
+l3days=l3days['Food'].dropna()
 fsum_dict=get_dayfood(yday)
 print_dict(fsum_dict)
 st.subheader("Three Day Average Food")
