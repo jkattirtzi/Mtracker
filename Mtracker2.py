@@ -2,13 +2,13 @@ from Mfunctions import *
 
 st.header("Marie Tracker 2.0")
 
-df0,df1=get_sheets()
-df0=clean_oldsheet(df0)
-if len(df1)==0:
-    df=df0
-else:
-    df1=clean_newsheet(df1)
-    df=df0.append(df1)
+df0,df1=get_localsheets()
+#df0=clean_oldsheet(df0)
+#if len(df1)==0:
+#    df=df0
+#else:
+#    df1=clean_newsheet(df1)
+#    df=df0.append(df1)
 df=df.sort_values(by=['Date','Time'],ascending=False).reset_index(drop=True)
 
 

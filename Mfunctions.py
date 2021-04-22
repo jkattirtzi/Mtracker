@@ -1,6 +1,6 @@
-from google.oauth2.service_account import Credentials
-import gspread
-from gspread_pandas import Spread, Client
+#from google.oauth2.service_account import Credentials
+#import gspread
+#from gspread_pandas import Spread, Client
 import streamlit as st
 import os
 import numpy as np
@@ -9,36 +9,63 @@ import altair as alt
 import datetime
 
 import seaborn as sns 
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 from datetime import datetime, timedelta
 
-def get_auth():
-    scope = ['https://spreadsheets.google.com/feeds','https://www.googleapis.com/auth/drive']
-    credentials = Credentials.from_service_account_file('./MyProject.json', scopes=scope)
-    return scope, credentials
+def get_localsheets():
+    df0=pd.read_csv('Mtracker_original.csv')
+    df1=pd.read_csv('Mtracker_2.csv')
 
-def get_sheets():
-    scope,credentials=get_auth()
-    client = Client(scope=scope, creds=credentials)
-    spread = Spread("Marie_Tracker_2.0_(Responses)", client=client)
-    spread0 = Spread("Marie Tracker Responses", client=client)
-    df1=spread.sheet_to_df(index=0)
-    df0=spread0.sheet_to_df(index=0)
+    df0.rename(columns={'Quantity (ml)':'Quantity'}, inplace=True)
+    df0['Date']=pd.to_datetime(df0['Date']).dt.date
+    df0['Time']=pd.to_datetime(df0['Time']).dt.time
+    df0['Quantity'].fillna(0,inplace=True)
+    df0['Quantity']= df0['Quantity'].astype(int)
+    df0=df0[['Date','Time','Pee', 'Poop', 'Food', 'Quantity']]
+    df1.rename(columns={'Today or Yesterday?':'Yesterday'}, inplace=True)
+    df1.rename(columns={'Quantity (ml or mins)':'Quantity'}, inplace=True)
+    df1['Timestamp']=pd.to_datetime(df1['Timestamp'])
+    df1['Date']=df1['Timestamp'].dt.date
+    df1['Time']=pd.to_datetime(df1['Time']).dt.time
+    df1.loc[(df1.Yesterday == 'Yesterday'),'Date']-=timedelta(days=1)
+    df1['Quantity'].fillna(0,inplace=True)
+    df1['Quantity'].replace('', 0, inplace=True)
+    df1['Quantity'].replace('none', 0, inplace=True)
+    df1['Quantity']=df1['Quantity'].astype(int)
+    df1['Time2'] = df1.apply(get_time, axis=1)
+    df1=df1[['Date','Time2','Pee', 'Poop', 'Food', 'Quantity']]
+    df1.rename(columns={'Time2':'Time'}, inplace=True)
     return df0,df1
+
+#def get_auth():
+#    scope = ['https://spreadsheets.google.com/feeds','https://www.googleapis.com/auth/drive']
+#    credentials = Credentials.from_service_account_file('./MyProject.json', scopes=scope)
+#    return scope, credentials
+
+#def get_sheets():
+#    scope,credentials=get_auth()
+#    client = Client(scope=scope, creds=credentials)
+#    spread = Spread("Marie_Tracker_2.0_(Responses)", client=client)
+#    spread0 = Spread("Marie Tracker Responses", client=client)
+#    df1=spread.sheet_to_df(index=0)
+#    df0=spread0.sheet_to_df(index=0)
+#    return df0,df1
 
 def get_time(row):
     time=row['Time']
+    date=row['Date']
+    time2=datetime.combine(date, time)
     pm=row['AM or PM']
     hour=time.hour
-    time2=time
     if pm=='PM':
         if hour > 12:
             pass
         else:
-            time2.hour+= timedelta(hours=12)
+            time2+= timedelta(hours=12)
     elif pm=='AM':
         if hour==12:
-            time2.dt.hour=0
+            time2.replace(hour=0)
+    time2=time2.time()
         
     return time2
 
