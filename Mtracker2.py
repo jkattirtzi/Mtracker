@@ -3,6 +3,7 @@ from Mfunctions import *
 st.header("Marie Tracker 2.0")
 
 df0,df1=get_localsheets()
+df=df0.append(df1)
 #df0=clean_oldsheet(df0)
 #if len(df1)==0:
 #    df=df0
